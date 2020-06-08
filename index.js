@@ -12,7 +12,13 @@ app.use(morgan('dev'));
 app.use('/webhook', webhookRouter);
 
 const hostname = 'localhost';
-const port = 3000;
+const port = process.env.PORT || 3000;
+
+app.get('/',(req, res) => {
+    res.status = 200;
+    res.setHeader('Content-Type', 'text/html');
+    res.end('<html><body><h1>Hello World!!!</h1></body></html>');
+})
 
 const server = http.createServer(app);
 server.listen(port, hostname, () => {
