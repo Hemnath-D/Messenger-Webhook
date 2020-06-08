@@ -20,7 +20,4 @@ app.get('/',(req, res) => {
     res.end('<html><body><h1>Hello World!!!</h1></body></html>');
 })
 
-const server = http.createServer(app);
-server.listen(port, hostname, () => {
-    console.log(`Webhook listening at http://${hostname}:${port}`)
-});
+app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
